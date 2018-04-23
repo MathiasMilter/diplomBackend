@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Ordreliste - ny ordre</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/jquery-ui.css">
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="javascript/controllers/orderRegisterController.js"></script>
+</head>
+<body onload = "deSelect()">
+
+	<div id="Header-Footer"></div>
+
+	<div id="info" class="container text-center">
+		<div class="my-5">
+			<h1>Opret Ny Ordre</h1>
+			<p class="lead">Indtast Følgede</p>
+		</div>
+		<div class="form-group">
+			<div id="orderForm">
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label">Aftalt tidspunkt: </label>
+					<div class="col-sm-10">
+						<input class="form-control form-control-lg" type="text" readonly= 'true' id="datepicker" />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label">Pris: </label>
+					<div class="col-sm-10">
+						<input class="form-control form-control-lg" type="number"
+							placeholder="fx. 900" id="prize" oninput="changeColor(this)" />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label">Beskrivelse: </label>
+					<div class="col-sm-10">
+						<input class="form-control form-control-lg" type="text"
+							placeholder="Beskrivelse" id="description"
+							oninput="changeColor(this)" />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label">Gennemført?: </label>
+					<div class="col-sm-10">
+						<div class="text-left mt-2">
+							<input id="done" type="checkbox">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label">Betalt?: </label>
+					<div class="col-sm-10">
+						<div class="text-left mt-2">
+							<input id="payed" type="checkbox">
+						</div>
+					</div>
+				</div>
+
+
+				<a id="submitOrder" class="btn btn-primary btn-lg mt-5"
+					role="button" id = "addButton" href="#" onClick="sendData()">Gem</a>
+			</div>
+		</div>
+	</div>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyBcBbueWQK74Y4jRz2SlS_BSId35cRN_yo",
+	    authDomain: "jprens-7d813.firebaseapp.com",
+	    databaseURL: "https://jprens-7d813.firebaseio.com",
+	    projectId: "jprens-7d813",
+	    storageBucket: "",
+	    messagingSenderId: "653824659591"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+</body>
+</html>
