@@ -26,7 +26,7 @@ public class MongoDBController {
 
 	public MongoDBController() {
 		try {
-			uri  = new MongoClientURI("mongodb://milter:thias123@ds249839.mlab.com:49839/jprenstest");
+			uri  = new MongoClientURI(System.getenv("MONGODB_URI"));
 			client = new MongoClient(uri);
 			db = client.getDatabase(uri.getDatabase());
 
