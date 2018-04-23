@@ -1,1 +1,45 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.ico"><title>DiplomPortal</title><link href="/static/css/main.7737268a.css" rel="stylesheet"></head><body><div id="root"></div><script type="text/javascript" src="/static/js/main.29d564d1.js"></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Home</title>
+
+<link rel="stylesheet" href="css/bootstrap.css">
+<script src="js/jquery-3.3.1.js"></script>
+<script src="javascript/Header-Footer.js"></script>
+<script src="javascript/controllers/localStorageController.js"></script>
+</head>
+<body onload = "deSelect(); unchangeOrder();")>
+
+	<div id="Header-Footer"></div>
+
+	<div class="row mt-5">
+		<div class="col"></div>
+		<div class="col">
+			<div class="text-center">
+				<div class="mb-5">
+					<h1>Velkommen</h1>
+					<p class="lead">Til Kundekartoteket</p>
+				</div>
+				<div class="pt-5"><img src="rsc/logo.png"></div>
+			</div>
+		</div>
+		<div class="col"></div>
+	</div>
+
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyBcBbueWQK74Y4jRz2SlS_BSId35cRN_yo",
+	    authDomain: "jprens-7d813.firebaseapp.com",
+	    databaseURL: "https://jprens-7d813.firebaseio.com",
+	    projectId: "jprens-7d813",
+	    storageBucket: "",
+	    messagingSenderId: "653824659591"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+</body>
+</html>
