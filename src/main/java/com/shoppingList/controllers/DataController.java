@@ -42,7 +42,7 @@ public class DataController {
 			while (cursor.hasNext()) {
 				Document doc = cursor.next();
 
-				output[count] = new Product(doc.getString("id"), doc.getString("name"), doc.getInteger("count", 0));
+				output[count] = new Product(doc.getString("id"), doc.getString("name"), doc.getString("count"));
 
 				count++;
 			}
