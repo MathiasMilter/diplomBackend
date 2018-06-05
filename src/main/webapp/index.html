@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Home</title>
-
-<link rel="stylesheet" href="css/bootstrap.css">
-<script src="js/jquery-3.3.1.js"></script>
-<script src="javascript/Header-Footer.js"></script>
-<script src="javascript/controllers/localStorageController.js"></script>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
 </head>
-<body onload = "deSelect(); unchangeOrder();")>
+<body>
 
-	<div id="Header-Footer"></div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-fixed-top" role="navigation">
+	<a class="text-light mr-auto" href="index.html">Home</a>
+	<div class="text-light mx-auto" id="pageText"></div>
+	<div class="text-light ml-auto" id="workOrderNumberCookie"></div>
+</nav>
 
-	<div class="row mt-5">
-		<div class="col"></div>
-		<div class="col">
-			<div class="text-center">
-				<div class="mb-5">
-					<h1>Velkommen</h1>
-					<p class="lead">Til Kundekartoteket</p>
-				</div>
-				<div class="pt-5"><img src="rsc/logo.png"></div>
+<div class="d-flex flex-wrap justify-content-center align-items-center">
+		<div class="w-100">
+			<div>
+				<table id="productTable" class="table table-striped table-bordered table-primary table-hover" style="width: 100%">
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>Ting</th>
+							<th>Antal</th>
+						</tr>
+					</thead>
+				</table>
 			</div>
 		</div>
-		<div class="col"></div>
 	</div>
 
-	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-	<script>
-	  // Initialize Firebase
-	  var config = {
-	    apiKey: "AIzaSyBcBbueWQK74Y4jRz2SlS_BSId35cRN_yo",
-	    authDomain: "jprens-7d813.firebaseapp.com",
-	    databaseURL: "https://jprens-7d813.firebaseio.com",
-	    projectId: "jprens-7d813",
-	    storageBucket: "",
-	    messagingSenderId: "653824659591"
-	  };
-	  firebase.initializeApp(config);
-	</script>
+
+<div class="page-footer font-small fixed-bottom">
+	<div class = "row">
+	<div class = "col text-center mb-3 mr-3 ml-3"><input id = "nameInput" class = "align-middle form-control form-control-lg" placeholder = "Ting" type = "text" oninput="changeColor(this)"></div>
+		<div class = "col text-center mb-3 mr-3 ml-3"><input id = "countInput" class = "align-middle form-control form-control-lg" placeholder = "Antal" type = "number" oninput="changeColor(this)"></div>
+	</div>
+	<div class = "row">
+	<div class = "col text-center mb-4"><a id = "submitButton" role="button" class="btn btn-primary btn-lg" value="Tilføj" onClick="submitForm()">Tilføj</a></div>
+	<div class = "col text-center mb-4"><a id = "submitButton" role="button" class="btn btn-primary btn-lg" value="Tilføj" onClick="deleteItem()">Slet</a></div>
+	</div>
+
+</div>
+
+
+
+
+<script src = "js/libraries/libraryLoader.js"></script>
+<script src = "js/libraries/dataTableLoader.js"></script>
+<script src = "js/controllers/CProductTable.js"></script>
+<script src = "js/controllers/CPostNewProduct.js"></script>
+
+
 </body>
 </html>
