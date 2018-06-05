@@ -4,7 +4,8 @@ function deleteItem(){
 	let URL_REAL = URL.concat($("#productTable").DataTable().rows( {selected : true} ).data()[0].id);
 	$.ajax({
 		type: "DELETE",
-		url: URL_REAL
+		url: URL_REAL,
+		async:false
 	})
 	location.reload();
 	
@@ -12,20 +13,20 @@ function deleteItem(){
 }
 
 
-function submitForm(event){
+function submitForm(){
 	if (checkForData()){
 			var data =
 			{
 					"name" : $("#nameInput").val(),
 					"count" : $("#countInput").val()
 			}
-			event.preventDefault();
 			$.ajax({
 				url:'rest/products',
 				datatype:'application/json',
 				type: 'POST',
 				contentType: 'application/json',
 				data : JSON.stringify(data),
+				async:false,
 				processData: false
 			});
 			location.reload();
