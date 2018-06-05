@@ -12,7 +12,7 @@ function deleteItem(){
 }
 
 
-function submitForm(){
+function submitForm(event){
 	if (checkForData()){
 			var data =
 			{
