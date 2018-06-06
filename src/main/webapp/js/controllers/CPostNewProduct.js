@@ -5,31 +5,50 @@ function deleteItem(){
 	$.ajax({
 		type: "DELETE",
 		url: URL_REAL,
-		async:false
+		async:false,
+		beforeSend: function (xhr) {
+			/* Authorization header */
+			xhr.setRequestHeader("Authorization", "Bearer " + getToken());
+		}, success: function(data) {
+			location.reload();
+		},
+		error: function (error) {
+			alert('You need to login.');
+			window.location = "index.html";
+		}
 	})
-	location.reload();
-	
-	
+
+
 }
 
 
 function submitForm(){
 	if (checkForData()){
-			var data =
-			{
-					"name" : $("#nameInput").val(),
-					"count" : $("#countInput").val()
+		var data =
+		{
+				"name" : $("#nameInput").val(),
+				"count" : $("#countInput").val()
+		}
+		$.ajax({
+			url:'rest/products',
+			datatype:'application/json',
+			type: 'POST',
+			contentType: 'application/json',
+			data : JSON.stringify(data),
+			async:false,
+			processData: false,
+			beforeSend: function (xhr) {
+				/* Authorization header */
+				xhr.setRequestHeader("Authorization", "Bearer " + getToken());
+			},	success: function(data) {
+				location.reload();
+			},
+			error: function (error) {
+				alert('You need to login.');
+				window.location = "index.html";
 			}
-			$.ajax({
-				url:'rest/products',
-				datatype:'application/json',
-				type: 'POST',
-				contentType: 'application/json',
-				data : JSON.stringify(data),
-				async:false,
-				processData: false
-			});
-			location.reload();
+		});
+		
 	}
 };
 

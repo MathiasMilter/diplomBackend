@@ -6,6 +6,10 @@ $(document).ready(function() {
 		type : "GET",
 		url : 'rest/products',
 		dataType : 'json',
+		beforeSend: function (xhr) {
+	        /* Authorization header */
+	        xhr.setRequestHeader("Authorization", "Bearer " + getToken());
+	    },
 		success : function(obj) {
 			table = $('#productTable').DataTable({
 				"bFilter": false,
@@ -25,6 +29,10 @@ $(document).ready(function() {
 						{"className": "dt-center", "targets": "_all"}
 						]
 			});
+		},
+		error: function (error) {
+			alert('You need to login.');
+			window.location = "index.html";
 		}
 	});
 } );
