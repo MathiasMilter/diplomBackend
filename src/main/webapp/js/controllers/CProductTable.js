@@ -21,7 +21,7 @@ $(document).ready(function() {
 				select: true,
 				data : obj,
 				columns : [
-					{ "data": "id", "visible" : false},
+					{ "data": "productID", "visible" : false},
 					{ "data": "name", render: $.fn.dataTable.render.ellipsis(20)},
 					{ "data": "count", render: $.fn.dataTable.render.ellipsis(20)}
 					],
