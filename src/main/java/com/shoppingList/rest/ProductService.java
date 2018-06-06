@@ -31,9 +31,9 @@ public class ProductService {
 	}
 	
 	@DELETE
-	@Path("/{id}")
-	public void deleteProduct(@PathParam("id") String id) {
-		productCtrl.deleteProduct(id);
+	@Path("/{productID}")
+	public void deleteProduct(@PathParam("productID") String productID) {
+		productCtrl.deleteProduct(productID);
 	}
 	
 	

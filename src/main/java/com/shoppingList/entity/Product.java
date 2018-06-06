@@ -6,7 +6,7 @@ import com.shoppingList.util.IdCreator;
 
 public class Product {
 	
-	private String sessionID, name, productID;
+	private String name, productID;
 
 
 	private String count;
@@ -23,10 +23,6 @@ public class Product {
 		this.productID = id; 
 		this.name = name;
 		this.count = count;
-	}
-	
-	public String getSessionID() {
-		return sessionID;
 	}
 
 	public String getProductID() {

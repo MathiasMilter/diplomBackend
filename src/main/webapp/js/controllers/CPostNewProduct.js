@@ -1,7 +1,7 @@
 function deleteItem(){
 
 	let URL = 'rest/products/';
-	let URL_REAL = URL.concat($("#productTable").DataTable().rows( {selected : true} ).data()[0].id);
+	let URL_REAL = URL.concat($("#productTable").DataTable().rows( {selected : true} ).data()[0].productID);
 	$.ajax({
 		type: "DELETE",
 		url: URL_REAL,

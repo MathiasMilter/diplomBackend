@@ -23,7 +23,7 @@ public class ProductController {
 	
 	// DELETE
 	
-	public void deleteProduct(String id) {
-		dataCtrl.deleteProduct(id);
+	public void deleteProduct(String productID) {
+		dataCtrl.deleteProduct(productID);
 	}
 }

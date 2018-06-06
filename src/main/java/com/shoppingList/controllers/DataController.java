@@ -45,7 +45,7 @@ public class DataController {
 			while (cursor.hasNext()) {
 				Document doc = cursor.next();
 
-				output[count] = new Product(doc.getString("id"), doc.getString("name"), doc.getString("count"));
+				output[count] = new Product(doc.getString("productID"), doc.getString("name"), doc.getString("count"));
 
 				count++;
 			}
@@ -56,14 +56,14 @@ public class DataController {
 	}
 
 	public void saveProduct(Product newProduct) {
-		products.insertOne(new Document("id", newProduct.getProductID())
+		products.insertOne(new Document("productID", newProduct.getProductID())
 				.append("name", newProduct.getName())
 				.append("count", newProduct.getCount()));
 	}
 
-	public void deleteProduct(String id) {
+	public void deleteProduct(String productID) {
 		BasicDBObject document = new BasicDBObject();
-		document.put("id", id);
+		document.put("productID", productID);
 		products.deleteOne(document);
 	}
 	
