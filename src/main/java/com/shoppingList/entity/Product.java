@@ -6,25 +6,30 @@ import com.shoppingList.util.IdCreator;
 
 public class Product {
 	
-	private String name, productID;
-
-
-	private String count;
+	private String name, productID, count, shoppingListID;
 	
 	
+
+
 	@JsonCreator
-	public Product(@JsonProperty("name") String name, @JsonProperty("count") String count) {
-		this.productID = IdCreator.createID();
+	public Product(@JsonProperty("shoppingListID") String shoppingListID, @JsonProperty("name") String name, @JsonProperty("count") String count) {
+		this.shoppingListID = shoppingListID;
+		this.productID = IdCreator.createProductID();
 		this.name = name;
 		this.count = count;
 	}
 	
-	public Product(String id, String name, String count) {
-		this.productID = id; 
+	public Product(String shoppingListID, String productID, String name, String count) {
+		this.shoppingListID = shoppingListID;
+		this.productID = productID; 
 		this.name = name;
 		this.count = count;
 	}
 
+	public String getShoppingListID() {
+		return shoppingListID;
+	}
+	
 	public String getProductID() {
 		return productID;
 	}

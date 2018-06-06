@@ -8,6 +8,7 @@ public class ControllerRegistry {
 	private static ProductController productCtrl;
 	private static UserController userCtrl;
 	private static loginController loginCtrl;
+	private static ShoppingListController shopListCtr;
 	
 	private static JWTHandler jwthandler;
 
@@ -35,5 +36,10 @@ public class ControllerRegistry {
 	public static synchronized loginController getLoginCtrl() {
 		if (loginCtrl == null) loginCtrl = new loginController();
 		return loginCtrl;
+	}
+	
+	public static synchronized ShoppingListController getShopListCtrl() {
+		if (shopListCtr == null) shopListCtr = new ShoppingListController();
+		return shopListCtr;
 	}
 }
