@@ -187,6 +187,17 @@ public class DataController {
 			}
 	}
 	
+	public ShoppingList[] getOwnedShoppingLists(String username) {
+		ShoppingList[] all = getShoppingLists();
+		ArrayList<ShoppingList> output = new ArrayList<ShoppingList>();
+		for (int i = 0; i < all.length; i++) 
+			if (all[i].getOwnerUsername().equals(username)) 
+				output.add(all[i]);
+
+		
+		return (ShoppingList[]) output.stream().toArray(ShoppingList[]::new);
+	}
+	
 	
 	
 	

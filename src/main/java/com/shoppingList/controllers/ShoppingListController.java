@@ -11,6 +11,10 @@ public class ShoppingListController {
 		return dataCtrl.getShoppingLists();
 	}
 	
+	public ShoppingList[] getOwnedShoppingLists(String username) {
+		return dataCtrl.getOwnedShoppingLists(username);
+	}
+	
 	public ShoppingList getShoppingList(String shoppingListID) {
 		return dataCtrl.getShoppingList(shoppingListID);
 	}

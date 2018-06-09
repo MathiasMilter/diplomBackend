@@ -28,6 +28,12 @@ public class ShoppingListService {
 	}
 	
 	@GET
+	@Path("/ownedBy/{username}")
+	public ShoppingList[] getOwnedShoppingLists(@PathParam("username") String username) {
+		return shopListContrl.getOwnedShoppingLists(username);
+	}
+	
+	@GET
 	@Path("/{shoppingListID}")
 	public ShoppingList getShoppingList(@PathParam("shoppingListID") String shoppingListID) {
 		return shopListContrl.getShoppingList(shoppingListID);
