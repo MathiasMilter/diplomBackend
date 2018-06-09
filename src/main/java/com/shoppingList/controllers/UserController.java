@@ -16,7 +16,14 @@ public class UserController {
 	}
 	
 	public void saveUser(User newUser) {
-		dataCtrl.saveUser(newUser);
+		
+		if (dataCtrl.getUser(newUser.getUsername()) == null) {
+			dataCtrl.saveUser(newUser);
+		} else {
+			System.out.println("user already exists");
+			//THROW EXCPETION :)
+		}
+		
 	}
 
 }

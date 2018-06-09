@@ -7,6 +7,7 @@ import javax.ws.rs.core.Context;
 
 import com.shoppingList.auth.AccessDeniedException;
 import com.shoppingList.controllers.ControllerRegistry;
+import com.shoppingList.controllers.UserController;
 import com.shoppingList.controllers.loginController;
 import com.shoppingList.entity.User;
 
@@ -18,13 +19,17 @@ public class loginService {
 
 	
 	private loginController loginCtrl = ControllerRegistry.getLoginCtrl();
-
-	
-	
+	private UserController userCtrl = ControllerRegistry.getUserCtrl();
 	
 	@POST
 	public String validateUser(User user) throws AccessDeniedException {
 		return loginCtrl.validateUser(user, requestContext);
+	}
+	
+	@POST
+	@Path("/createUser")
+	public void saveUser(User newUser) {
+		userCtrl.saveUser(newUser);
 	}
 
 }

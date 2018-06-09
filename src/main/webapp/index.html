@@ -4,6 +4,7 @@
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login - Milters Indkøb</title>
+
 </head>
 <body onLoad = "removeToken()">
 
@@ -14,7 +15,7 @@
 
 
 
-<div class="container d-flex justify-content-center">
+<div id = "loginScreen" class="container d-flex justify-content-center">
     <div class="jumbotron my-5">
       
       <div class = "row mb-3 align-items-center"><div class = "col"><h1 class = "text-center">Sign in</h1></div></div>
@@ -27,13 +28,9 @@
       <div class = "col"><input id = "passwordInput" type = "password" onInput = "changeColor(this)"></div>
       </div>
       <div class = "row mt-5 align-items-center"><div class = "col"><div class = "text-center"><a id = "loginButton" role="button" class="btn btn-primary btn-lg" value="Login" onClick = "login()">Login</a></div></div></div>
-      
+      <div class = "row mt-5"><div class = "col"><div class = "text-right"><a id = "loginButton" href="createUser.html" class="btn btn-info">New User</a></div></div></div>      
       </div>
-
 </div>
-
-
-
 
 
 

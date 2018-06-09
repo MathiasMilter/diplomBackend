@@ -106,7 +106,7 @@ public class DataController {
 			while (cursor.hasNext()) {
 				Document doc = cursor.next();
 
-				output[count] = new User(doc.getString("username"), doc.getString("password"));
+				output[count] = new User(doc.getString("name"), doc.getString("email"), doc.getString("username"), doc.getString("password"));
 
 				count++;
 			}
@@ -128,7 +128,9 @@ public class DataController {
 	
 	public void saveUser(User newUser) {
 		users.insertOne(new Document("username", newUser.getUsername())
-				.append("password", newUser.getPassword()));
+				.append("password", newUser.getPassword())
+				.append("name", newUser.getName())
+				.append("email", newUser.getEmail()));
 	}
 	
 //----------------------------------------------------------------------------------------------	

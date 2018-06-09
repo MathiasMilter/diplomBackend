@@ -31,11 +31,6 @@ public class UserService {
 		return userCtrl.getUser(username);
 	}
 	
-	@POST
-	public void saveUser(User newUser) {
-		userCtrl.saveUser(newUser);
-	}
-	
 	
 	
 	

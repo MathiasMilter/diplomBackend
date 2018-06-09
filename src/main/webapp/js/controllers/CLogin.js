@@ -24,7 +24,6 @@ function login(){
 			});
 	}
 };
-
 function changeColor(x) {
 	x.style.borderColor = "";
 }
