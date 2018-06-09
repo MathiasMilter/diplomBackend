@@ -6,6 +6,7 @@ function login(){
 					"username" : $("#usernameInput").val(),
 					"password" : $("#passwordInput").val()
 			}
+			
 			$.ajax({
 				url:'rest/login',
 				datatype:'application/json',
@@ -16,7 +17,8 @@ function login(){
 				processData: false,
 				success: function(data) {
 					setToken(data);
-					window.location = 'productTable.html';
+					setUsername($("#usernameInput").val());
+					window.location = 'shoppingList.html';
 			    },
 			    error: function (error) {
 			       alert('Wrong login!');

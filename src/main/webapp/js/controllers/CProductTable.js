@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 	$.ajax({
 		type : "GET",
-		url : 'rest/products',
+		url : 'rest/products/shoppingList/' + getShoppingListID(),
 		dataType : 'json',
 		beforeSend: function (xhr) {
 	        /* Authorization header */

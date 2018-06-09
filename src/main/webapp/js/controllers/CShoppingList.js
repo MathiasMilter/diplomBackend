@@ -1,32 +1,45 @@
-function deleteItem(){
+$(document).ready(function(){
+	loadShoppingLists();
+});
 
-	let URL = 'rest/products/';
-	let URL_REAL = URL.concat($("#productTable").DataTable().rows( {selected : true} ).data()[0].productID);
+function loadShoppingLists(){
 	$.ajax({
-		type: "DELETE",
-		url: URL_REAL,
-		async:false,
+		url: 'rest/shoppingList/ownedBy/' + getUsername(),
+		datatype:'application/json',
+		type: 'GET',
+		contentType: 'application/json',
 		beforeSend: function (xhr) {
 			/* Authorization header */
 			xhr.setRequestHeader("Authorization", "Bearer " + getToken());
-		}, success: function(data) {
-			location.reload();
 		},
-		error: function (error) {
-			alert('You need to login.');
-			window.location = "index.html";
+		success: function(data) {
+			
+			for (var i = 0; i<data.length; i++){
+				$('ul').append( '<li class = "mb-3"><div class = "row">' +
+						'<div class = "col">'+ data[i].name +'</div>'+
+						'<div class = "col">'+'<div class = "text-right"><a id = '+data[i].shoppingListID+' onClick = "chooseShoppingList(this.id)" class="btn btn-info mr-2">Choose</a></div></div>'+
+						'</div></li>');
+			}
+			
+
 		}
-	})
-
-
+		
+		
+	});
 }
 
+function chooseShoppingList(shoppingListID){
+	setShoppingListID(shoppingListID);
+	
+	
+	window.location = "productTable.html";
+	
+}
 
 function submitForm(){
 	if (checkForData()){
 		var data =
 		{
-				"shoppingListID" : getShoppingListID(),
 				"name" : $("#nameInput").val(),
 				"count" : $("#countInput").val()
 		}

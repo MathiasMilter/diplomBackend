@@ -21,8 +21,9 @@ public class ProductService {
 	private ProductController productCtrl = ControllerRegistry.getProductCtrl();
 	
 	@GET
-	public Product[] getProducts() {
-		return productCtrl.getProducts();
+	@Path("shoppingList/{shoppingListID}")
+	public Product[] getProducts(@PathParam("shoppingListID") String shoppingListID) {
+		return productCtrl.getProducts(shoppingListID);
 	}
 	
 	@POST
