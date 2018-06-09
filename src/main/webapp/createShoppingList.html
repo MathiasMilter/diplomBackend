@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>List creation - Milters Indkøb</title>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-fixed-top"
+		role="navigation">
+		<a class="text-light mr-auto" href="index.html">Home</a>
+	</nav>
+
+
+
+
+	<div id="loginScreen" class="container d-flex justify-content-center">
+		<div class="jumbotron my-5">
+
+			<div class="row mb-3 align-items-center">
+				<div class="col">
+					<h1 class="text-center">New List</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col mb-3">Name:</div>
+				<div class="col mb-3">
+					<input id="createName" onInput="changeColor(this)">
+				</div>
+			</div>
+			<div class="row mt-5 align-items-center">
+				<div class="col">
+					<div class="text-center">
+						<a id="loginButton" role="button" class="btn btn-primary btn-lg"
+							value="Login" onClick="createShoppingList()">Add</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="page-footer font-small fixed-bottom"></div>
+	<script src="js/libraries/libraryLoader.js"></script>
+	<script src="js/controllers/CCreateShoppingList.js"></script>
+
+
+</body>
+</html>
